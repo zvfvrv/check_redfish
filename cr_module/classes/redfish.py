@@ -43,7 +43,7 @@ class RedfishConnection:
     desired_session_file_mode = 0o600
 
     def __init__(self, cli_args=None):
-
+        self.__cached_data = dict()
         if cli_args is None:
             raise Exception("No args passed to RedfishConnection()")
 
