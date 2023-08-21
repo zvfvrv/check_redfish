@@ -145,7 +145,8 @@ def get_single_system_procs(plugin_object, redfish_url):
                     L3_cache_kib=level_3_cache_kib,
                     type=proc_response.get("ProcessorType")
                 )
-
+                if proc_response.get("ProcessorType") == 'GPU':
+                    proc_inventory.socket = proc_response.get("Name")
                 if plugin_object.cli_args.verbose:
                     proc_inventory.source_data = proc_response
 
